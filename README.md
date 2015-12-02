@@ -1,13 +1,13 @@
 # Xcode_snippets
 用来管理Xcode的代码片段,实现git管理,多台电脑同步,永不丢失.
 
-# 1
+## first
 fork项目到自己的git中.
 
-# 2
+## second
 用sourceTree管理这个git.
 
-# 3
+## third
 运行项目的setup_snippets.sh命令
 具体做法:
 打开命令行,进入git项目的目录.
