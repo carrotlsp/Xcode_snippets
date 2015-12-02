@@ -3,24 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>sp_copyString</string>
+	<string>sp_copyBlock</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>ClassInterfaceMethods</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (nonatomic, copy) NSString *&lt;#name#&gt;;</string>
+	<string>@property (nonatomic, copy) void (^&lt;#success#&gt;)();</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>644E2BB4-D2EA-4C0E-988A-942768327DB4</string>
+	<string>16EA510E-8E6D-4C20-BD71-900F6EF09218</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>@property (nonatomic, copy) NSString *name;</string>
+	<string>@property (nonatomic, copy) void (^success)();</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>sp_copyString</string>
+	<string>sp_copyBlock</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
