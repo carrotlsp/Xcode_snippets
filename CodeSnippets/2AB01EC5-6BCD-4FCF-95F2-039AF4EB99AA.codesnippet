@@ -3,28 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>spTableViewHeaderView</string>
+	<string>spStrongMutableArray</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>ClassImplementation</string>
+		<string>ClassInterfaceMethods</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>#pragma mark - tableView header
-- (void)setupTableViewHeader {
-    DDBusinessCardHeader *headerView = [DDBusinessCardHeader dd_loadFromXIB];
-    self.tableView.tableHeaderView = headerView;
-}</string>
+	<string>@property (nonatomic, strong) NSMutableArray *&lt;#name#&gt;;</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>EF8B8DC2-6A87-494E-A275-2B0415EEB530</string>
+	<string>2AB01EC5-6BCD-4FCF-95F2-039AF4EB99AA</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>tableViewHeaderView</string>
+	<string>StrongMutableArray</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>tableViewHeaderView</string>
+	<string>StrongMutableArray</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
