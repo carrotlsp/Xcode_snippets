@@ -3,21 +3,28 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>spStrongArray</string>
+	<string>spSingleton</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>ClassInterfaceMethods</string>
+		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (nonatomic, strong) NSArray *&lt;#name#&gt;;</string>
+	<string>+ (&lt;#Class#&gt; *)sharedModel {
+    static dispatch_once_t pred = 0;
+    __strong static id _sharedObject = nil;
+    dispatch_once(&amp;pred, ^{
+        _sharedObject = [[&lt;#Class#&gt; alloc] init];
+    });
+    return _sharedObject;
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>688CC5FC-4BA3-402D-8D87-9664FA24FFC9</string>
+	<string>52FE1F77-A4C4-4669-B9D6-980651F0C833</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>@property (nonatomic, strong) NSArray *name;</string>
+	<string>singleton</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>sp_ strongArray</string>
+	<string>singleton</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
