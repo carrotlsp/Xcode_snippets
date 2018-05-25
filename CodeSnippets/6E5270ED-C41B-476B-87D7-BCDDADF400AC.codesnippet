@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>spRightTopButton</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - topRightButton
+- (void)setupTopRightButton {
+    UIButton *topRightButton = [UIButton getRightTopButtonWithTitle:@"移除" andColorString:@"ffffff" orImageName:nil withSize:CGSizeMake(40, 25)];
+    [topRightButton addTarget:self action:@selector(topRightButtonDidClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView:topRightButton];
+    self.navigationItem.rightBarButtonItems = @[item];
+}
+
+- (void)topRightButtonDidClicked {
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>6E5270ED-C41B-476B-87D7-BCDDADF400AC</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>spRightTopButton</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>spRightTopButton</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

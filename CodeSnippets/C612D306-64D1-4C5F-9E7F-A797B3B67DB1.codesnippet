@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>spDelegate</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>@protocol DDPhotoPickHelperDelegate &lt;NSObject&gt;
+//传值的内容作为协议方法的参数
+-(void)photoPickHelperSelectedImage:(UIImage *)selectedImage withSelectedImageKey:(NSString *)selectedImageKey;
+@end
+
+
+@property(nonatomic,weak) id &lt;DDPhotoPickHelperDelegate&gt; delegate;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C612D306-64D1-4C5F-9E7F-A797B3B67DB1</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>spDelegate</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>spDelegate</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

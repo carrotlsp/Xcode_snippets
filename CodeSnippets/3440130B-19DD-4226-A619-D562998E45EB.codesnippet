@@ -31,14 +31,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>3440130B-19DD-4226-A619-D562998E45EB</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>spTableViewAbout</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>tableViewAbout</string>
+	<string>spTableViewAbout</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

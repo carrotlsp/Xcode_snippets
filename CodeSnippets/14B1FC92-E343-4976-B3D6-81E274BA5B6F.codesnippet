@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>spLeftTopButton</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - topLeftButton
+- (void)setupTopLeftButton {
+    UIButton *topLeftButton = [UIButton getLeftTopButtonWithTitle:@"移除" andColorString:@"ffffff" orImageName:nil withSize:CGSizeMake(40, 25)];
+    [topLeftButton addTarget:self action:@selector(topLeftButtonDidClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView:topLeftButton];
+    self.navigationItem.leftBarButtonItems = @[item];
+}
+
+- (void)topLeftButtonDidClicked {
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>14B1FC92-E343-4976-B3D6-81E274BA5B6F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>spLeftTopButton</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>spLeftTopButton</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

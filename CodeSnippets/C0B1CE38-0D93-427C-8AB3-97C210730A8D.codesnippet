@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>spRefreshTableView</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (void)setupRefreshView {
+    self.tableView.autoresizesSubviews = NO;
+    self.tableView.dd_width = SCREEN_WIDTH;
+    self.tableView.estimatedRowHeight =0;
+    self.tableView.estimatedSectionHeaderHeight =0;
+    self.tableView.estimatedSectionFooterHeight =0;
+    
+    __weak typeof(self) weakSelf = self;
+    [self.tableView dd_addHeaderWithRefreshingBlock:^{
+        [weakSelf loadNewData];
+    }];
+    
+    [self.tableView dd_addFooterWithRefreshingBlock:^{
+        [weakSelf loadMoreData];
+    }];
+    
+    [self.tableView dd_beginHeaderRefreshing];
+}
+
+- (void)loadNewData {
+    //     self.offset = @"";
+    //    [self.tableView dd_resetNoMoreData];
+    //    [DDAPI userCashRecordWithOffset:self.offset onSuccessed:^(NSArray *data) {
+    //        if (data.count &gt; 0) {
+    //            DDCashRecordModel *lastCashModel = [data lastObject];
+    //            self.offset = lastCashModel.ID;
+    //        }
+    //        self.dataArray = data;
+    //        [self.tableView reloadData];
+    //        [self.tableView dd_headerEndRefreshing];
+    //    } onFailed:^(ErrorInfo *error) {
+    //        [self.tableView dd_headerEndRefreshing];
+    //    }];
+}
+- (void)loadMoreData {
+    //    [DDAPI userCashRecordWithOffset:self.offset onSuccessed:^(NSArray *data) {
+    //        if (data.count &gt; 0) {
+    //            DDCashRecordModel *lastCashModel = [data lastObject];
+    //            self.offset = lastCashModel.ID;
+    //        } else {
+    //            [self.tableView dd_endRefreshingWithNoMoreData];
+    //            return ;
+    //        }
+    //        NSMutableArray *tempArray = [NSMutableArray arrayWithArray:self.dataArray];
+    //        [tempArray addObjectsFromArray:data];
+    //        self.dataArray = data;
+    //        [self.tableView reloadData];
+    //        [self.tableView dd_footerEndRefreshing];
+    //    } onFailed:^(ErrorInfo *error) {
+    //        [self.tableView dd_footerEndRefreshing];
+    //    }];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C0B1CE38-0D93-427C-8AB3-97C210730A8D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>spRefreshTableView</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>spRefreshTableView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
