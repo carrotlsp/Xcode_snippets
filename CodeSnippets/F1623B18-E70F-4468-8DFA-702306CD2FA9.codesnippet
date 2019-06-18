@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>spPageViewController</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//
+//  ApplyInvoiceAllViewController.m
+//  sctb
+//
+//  Created by carrot__lsp on 2019/6/16.
+//  Copyright © 2019 Dpp. All rights reserved.
+//
+
+#import "ApplyInvoiceAllViewController.h"
+#import "DDSegmentView.h"
+#import "AppliedInvoiceViewController.h"
+#import "ApplyInvoiceViewController.h"
+#import &lt;Masonry.h&gt;
+
+@interface ApplyInvoiceAllViewController ()&lt;UIPageViewControllerDataSource, UIPageViewControllerDelegate&gt;
+@property (nonatomic, strong) UIPageViewController *pageViewController;
+@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, assign) NSInteger ld_currentIndex;
+/**
+ 选中的索引
+ */
+@property (nonatomic, assign) NSInteger selectedIndex;
+
+@property (nonatomic, strong) DDSegmentView *segmentView;
+@end
+
+@implementation ApplyInvoiceAllViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    DDSegmentView *segmentView =  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([DDSegmentView class]) owner:nil options:nil] lastObject];
+    //    segmentView.dd_width = 300;
+    segmentView.intrinsicContentSize = CGSizeMake(170, 28);
+//    self.navigationController.navigationBar.topItem.titleView = segmentView;
+    self.navigationItem.titleView = segmentView;
+    //    pageController.navigationController.navigationBar.topItem.titleView = segmentView;
+    //    self.segmentView = segmentView;
+    //    [[DDGlobalData sharedData].segmentViewArray addObject:segmentView];
+    
+    segmentView.pageChangeClicked = ^(int index) {
+        //        self.segmentedControl.selectedSegmentIndex = index;
+        [self tapPageChange:index];
+    };
+    
+    [self.dataSource addObject:[ApplyInvoiceViewController new]];
+    [self.dataSource addObject:[AppliedInvoiceViewController new]];
+    
+    UIViewController *vc = [self.dataSource objectAtIndex:self.segmentView.currentIndex];
+    [self.pageViewController setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
+    
+    
+}
+
+- (void)tapPageChange:(int)index{
+    UIViewController *vc = [self.dataSource objectAtIndex:index];
+    
+    if (index &gt; self.ld_currentIndex) {
+        
+        [self.pageViewController setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL finished) {
+            
+        }];
+    } else {
+        
+        [self.pageViewController setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:^(BOOL finished) {
+            
+        }];
+    }
+    
+    self.ld_currentIndex = index;
+    self.selectedIndex = index;
+    
+}
+
+
+- (UIPageViewController *)pageViewController {
+    if (_pageViewController == nil) {
+        NSDictionary *option = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:10] forKey:UIPageViewControllerOptionInterPageSpacingKey];
+        _pageViewController = [[UIPageViewController alloc]initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:option];
+        _pageViewController.delegate = self;
+        _pageViewController.dataSource = self;
+        
+        [self addChildViewController:_pageViewController];
+        [self.view addSubview:_pageViewController.view];
+        [_pageViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.and.top.bottom.equalTo(@0);
+        }];
+    }
+    
+    return _pageViewController;
+}
+
+- (NSMutableArray *)dataSource {
+    if (_dataSource == nil) {
+        _dataSource = [NSMutableArray arrayWithCapacity:0];
+    }
+    
+    return _dataSource;
+}
+
+
+
+
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    
+    NSInteger index = [self.dataSource indexOfObject:viewController];
+    
+    if (index == 0 || (index == NSNotFound)) {
+        
+        return nil;
+    }
+    
+    index--;
+    
+    return [self.dataSource objectAtIndex:index];
+}
+
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    
+    NSInteger index = [self.dataSource indexOfObject:viewController];
+    
+    if (index == self.dataSource.count - 1 || (index == NSNotFound)) {
+        
+        return nil;
+    }
+    
+    index++;
+    
+    return [self.dataSource objectAtIndex:index];
+}
+
+/*
+ - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController  {
+ 
+ return 2;
+ }
+ 
+ - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+ 
+ return 2;
+ }
+ */
+
+- (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray&lt;UIViewController *&gt; *)pendingViewControllers {
+    
+    UIViewController *nextVC = [pendingViewControllers firstObject];
+    
+    NSInteger index = [self.dataSource indexOfObject:nextVC];
+    self.selectedIndex = index;
+    self.ld_currentIndex = index;
+}
+
+// Sent when a gesture-initiated transition ends. The 'finished' parameter indicates whether the animation finished, while the 'completed' parameter indicates whether the transition completed or bailed out (if the user let go early).
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray&lt;UIViewController *&gt; *)previousViewControllers transitionCompleted:(BOOL)completed {
+    
+    if (completed) {
+        [self.segmentView changePageIndex:(int)self.ld_currentIndex];
+        self.selectedIndex = self.ld_currentIndex;
+    }
+}
+
+@end
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>F1623B18-E70F-4468-8DFA-702306CD2FA9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>spPageViewController</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>spPageViewController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

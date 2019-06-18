@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>spSegmentMfile</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//
+//  DDSegmentView.m
+//  DongBiDi
+//
+//  Created by carrot__lsp on 2018/3/17.
+//  Copyright © 2018年 carrot__lsp. All rights reserved.
+//
+
+#import "DDSegmentView.h"
+
+@interface DDSegmentView ()
+
+
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
+@end
+
+@implementation DDSegmentView
+
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self updateSegment];
+    
+}
+
+- (void)changePageIndex:(int)index {
+    _currentIndex = index;
+    [self updateSegment];
+}
+
+
+- (IBAction)pageChangeClickedAction:(UISegmentedControl *)sender {
+    _currentIndex = (int)sender.selectedSegmentIndex;
+    [self updateSegment];
+    
+    if (self.pageChangeClicked) {
+        self.pageChangeClicked(_currentIndex);
+    }
+}
+
+- (void)updateSegment {
+    self.segmentedControl.selectedSegmentIndex = _currentIndex;
+    
+}
+
+
+@end
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>4EDDC51D-F055-48F8-8F99-F7AFFB3954A7</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>spSegmentMfile</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>spSegmentMfile</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>spSegmentHfile</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//
+//  DDSegmentView.h
+//  DongBiDi
+//
+//  Created by carrot__lsp on 2018/3/17.
+//  Copyright © 2018年 carrot__lsp. All rights reserved.
+//
+
+#import &lt;UIKit/UIKit.h&gt;
+
+@interface DDSegmentView : UIView
+@property(nonatomic, assign) CGSize intrinsicContentSize;
+
+- (void)changePageIndex:(int)index;
+@property (nonatomic, copy) void (^pageChangeClicked)(int index);
+@property (assign, nonatomic ,readonly) int currentIndex;
+
+
+@end
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>690245EB-C928-486A-A8AC-9AC539C0237D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>spSegmentHfile</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>spSegmentHfile</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
